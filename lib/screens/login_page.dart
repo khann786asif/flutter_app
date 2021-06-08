@@ -28,12 +28,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Login",
-          style: TextStyle(color: Colors.white, fontSize: 24),
-        ),
-        centerTitle: true,
-      ),
+        title: Text("Login", style: TextStyle(fontSize: 24),), centerTitle: true,),
       body: Material(
           color: Colors.white,
           child: SingleChildScrollView(
@@ -97,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                           height: 40.0,
                         ),
                         Material(
-                          color: Colors.deepPurple,
+                          color: Color.fromRGBO(95, 15, 64, 1.0),
                           borderRadius:
                               BorderRadius.circular(changeButton ? 50 : 8),
                           child: InkWell(

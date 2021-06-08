@@ -7,7 +7,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       drawer: MyDrawer(),
       appBar: AppBar(
-        title: Text("My App"),),
+        title: Text("My App", style: TextStyle(fontSize: 24),), centerTitle: true,),
       body: Material(
         color: Colors.lightGreenAccent,
         child: Padding(
