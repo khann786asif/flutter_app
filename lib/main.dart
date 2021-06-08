@@ -8,6 +8,7 @@ void main() {
   runApp(MyApp());
 }
 
+// ignore: must_be_immutable
 class MyApp extends StatelessWidget {
 
   @override
@@ -16,8 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: GoogleFonts.lato().fontFamily,
-        primarySwatch: Colors.cyan,
-      ),
+        primarySwatch: Colors.deepPurple),
         initialRoute: "/",
       routes: {
         "/" : (context) => LoginPage(),

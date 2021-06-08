@@ -11,24 +11,29 @@ class _LoginPageState extends State<LoginPage> {
   bool changeButton = false;
   final _formKey = GlobalKey<FormState>();
 
-   void moveToHome(BuildContext context) async{
-     if(_formKey.currentState!.validate()) {
-       setState(() {
-         changeButton = true;
-       });
-       await Future.delayed(Duration(seconds: 1));
-       await Navigator.pushNamed(context, MyRoutes.homeRoute);
-       setState(() {
-         changeButton = false;
-       });
-     }
+  void moveToHome(BuildContext context) async {
+    if (_formKey.currentState!.validate()) {
+      setState(() {
+        changeButton = true;
+      });
+      await Future.delayed(Duration(seconds: 1));
+      await Navigator.pushNamed(context, MyRoutes.homeRoute);
+      setState(() {
+        changeButton = false;
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.deepPurpleAccent, title: Text("Login",
-        style: TextStyle(color: Colors.white, fontSize: 24),),centerTitle: true,),
+      appBar: AppBar(
+        title: Text(
+          "Login",
+          style: TextStyle(color: Colors.white, fontSize: 24),
+        ),
+        centerTitle: true,
+      ),
       body: Material(
           color: Colors.white,
           child: SingleChildScrollView(
@@ -54,8 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                     height: 20.0,
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 16.0, horizontal: 32.0),
+                    padding: const EdgeInsets.all(16.0),
                     child: Column(
                       children: [
                         TextFormField(
@@ -67,8 +71,8 @@ class _LoginPageState extends State<LoginPage> {
                             name = value;
                             setState(() {});
                           },
-                          validator: (value){
-                            if(value!.isEmpty){
+                          validator: (value) {
+                            if (value!.isEmpty) {
                               return "Username Not be empty";
                             }
                             return null;
@@ -80,10 +84,10 @@ class _LoginPageState extends State<LoginPage> {
                             hintText: "Enter password",
                             labelText: "Password",
                           ),
-                          validator: (value){
-                            if(value!.isEmpty){
+                          validator: (value) {
+                            if (value!.isEmpty) {
                               return "Password Not be empty";
-                            }else if(value.length < 6){
+                            } else if (value.length < 6) {
                               return "Password length should be greater than 5";
                             }
                             return null;
@@ -93,9 +97,9 @@ class _LoginPageState extends State<LoginPage> {
                           height: 40.0,
                         ),
                         Material(
-                          color: Colors.deepPurpleAccent,
+                          color: Colors.deepPurple,
                           borderRadius:
-                          BorderRadius.circular(changeButton ? 50 : 8),
+                              BorderRadius.circular(changeButton ? 50 : 8),
                           child: InkWell(
                             onTap: () => moveToHome(context),
                             child: AnimatedContainer(
@@ -103,15 +107,21 @@ class _LoginPageState extends State<LoginPage> {
                               width: changeButton ? 50 : 150,
                               height: 50,
                               alignment: Alignment.center,
-                              child: changeButton ? Icon(Icons.done, color: Colors.white,)
-                                  : Text("Login", style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18),
-                              ),
-                              ),
+                              child: changeButton
+                                  ? Icon(
+                                      Icons.done,
+                                      color: Colors.white,
+                                    )
+                                  : Text(
+                                      "Login",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18),
+                                    ),
                             ),
                           ),
+                        ),
                       ],
                     ),
                   )
